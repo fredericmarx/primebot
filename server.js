@@ -2,15 +2,19 @@ const express = require('express')
 const getPrimeFactors = require('get-prime-factors')
 const app = express()
 
-app.get('/:id', (req, res, next) => {
-  const input = req.originalUrl.substring(1)
+app.get('/', (req, res, next) => {
+  const input = req.param('n')
 
   if (parseInt(input, 10)) {
     if (getPrimeFactors(input).length > 1) {
       const primeFactors = [...new Set(getPrimeFactors(input))] // Dedupe prime factors
-      res.send(`${input} is divisable by
+      res.send(`
+        <form action="/" method="get">
+        <input value="${input}" name="n" type="text">
+        is divisable by
         ${primeFactors.length > 1 ? `${primeFactors.slice(0, -1).join(', ')}, and` : ''}
         ${primeFactors[primeFactors.length - 1]}
+        </form>
       `)
     } else {
       res.send(`${input} is a prime number`)
