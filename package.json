@@ -9,5 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "start": "node server.js"
+  "start": "node server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "get-prime-factors": "^1.0.0"
+  }
 }
