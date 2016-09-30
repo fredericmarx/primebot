@@ -1,7 +1,19 @@
 const express = require('express')
 const getPrimeFactors = require('get-prime-factors')
 const template = require('./template')
+const path = require('path')
 const app = express()
+const postcssMiddleware = require('postcss-middleware')
+const postcssImport = require('postcss-import')
+
+app.use('/styles', postcssMiddleware({
+  src: (req) => {
+    return path.join('styles', req.path)
+  },
+  plugins: [
+    postcssImport
+  ]
+}))
 
 app.get('/', (req, res, next) => {
   const number = parseInt(req.param('n'), 10)

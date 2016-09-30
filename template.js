@@ -1,5 +1,6 @@
 module.exports = (number, primeFactors) => `
   <head>
+    <link rel="stylesheet" href="styles/main.css"/>
     <style>
       body {font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', sans-serif}
     </style>
