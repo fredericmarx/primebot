@@ -58,7 +58,7 @@ module.exports = (number, primeFactors) => `
             </p>`
             : ''}`
         }`
-        : `<h1>${number} is not a number</h1>`
+        : `<h1>${number} is not a ${number === 0 ? 'prime ' : ''}number</h1>` // Dirty fix for zero
       }
       <p>A prime number is any natural number greater than 1 that can only be divided by 1 and itself.</p>
       <form class="mt2" action="/" method="get">
