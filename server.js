@@ -39,7 +39,7 @@ app.get('/', (req, res, next) => {
 
   if (parseInt(number, 10)) {
     if (parseInt(number, 10) > 9999) {
-      res.send(toobig(number))
+      res.status(400).send(toobig(number))
     } else {
       res.send(template(number, primeFactors))
     }
