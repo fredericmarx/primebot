@@ -4,6 +4,8 @@ module.exports = (number) => `
   <title>${number} — Primebot</title>
   <meta name="description" content="Find prime numbers">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles/main.css">
   <body class="bg-silver">
   <div class="bg-white">

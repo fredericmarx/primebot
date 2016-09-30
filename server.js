@@ -15,6 +15,8 @@ app.use(compression({
   level: 1
 }))
 
+app.use(express.static('public'))
+
 app.use('/styles', postcssMiddleware({
   src: (req) => {
     return path.join('styles', req.path)
