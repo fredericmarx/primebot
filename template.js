@@ -1,4 +1,5 @@
 const getPrimeFactors = require('get-prime-factors')
+// const getPrimeFactors = () => [2]
 
 module.exports = (number, primeFactors) => `
 <html lang="en">
@@ -7,11 +8,11 @@ module.exports = (number, primeFactors) => `
   <meta name="description" content="Find prime numbers">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/main.css">
-  <div class="bg-white">
-  <svg class="stage" role="presentation" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
+  <div class="bg-white stage">
+  <svg role="presentation" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
     ${(function () {
       let string = ''
-      const primeFactors = []
+      const drawnFactors = []
       const numbers = [
         number - 3,
         number - 2,
@@ -21,19 +22,23 @@ module.exports = (number, primeFactors) => `
         number + 2,
         number + 3
       ]
-      numbers.map(number => {
-        getPrimeFactors(number).map(factor => {
-          !primeFactors.includes(factor) && primeFactors.push(factor)
+      numbers.map((number, numberIndex) => {
+        const numberPosition = (numberIndex + 1) * 10 - 5
+
+        getPrimeFactors(number).map((factor) => {
+          if (!drawnFactors.includes(factor)) {
+            const circleCount = 9
+            const radius = factor * 5
+
+            for (let i = 0; i < circleCount; i++) {
+              string += `<circle fill="none" stroke="hotpink" stroke-width=".2" stroke-opacity="${(1 / factor) / 2 + 0.15}" cx="${(i * 2 * radius) - radius + numberPosition}" cy="35" r="${radius}"/>`
+            }
+            drawnFactors.push(factor)
+          }
         })
       })
-      primeFactors.map(factor => {
-        const radius = factor * 10
-        for (let i = 1; i < 9 + 1; i++) {
-          string += `<circle fill="none" stroke="hotpink" stroke-width=".2" stroke-opacity="${1 / factor}" cx="${i * radius - 1.5 * radius}" cy="35" r="${radius}"/>`
-        }
-      })
       numbers.map((number, index) => {
-        string += `<text x="${index * 10 + 5}" text-anchor="middle" width="10" y="35" font-size="2" style="text-align: center">${number}</text>`
+        string += `<text x="${index * 10 + 5}" text-anchor="middle" width="10" y="${35 + 1}" font-size="2" style="text-align: center">${number}</text>`
       })
       return string
     })()}

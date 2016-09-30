@@ -8,8 +8,11 @@ a {
   color: var(--blue);
 }
 
-.table {
-  width: 100%;
-  table-layout: fixed;
-  text-align: center;
+.stage {
+  overflow: hidden;
+}
+
+.stage svg {
+  margin-top: -40%;
+  margin-bottom: -70%;
 }
