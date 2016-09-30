@@ -40,7 +40,7 @@ app.get('/', (req, res, next) => {
   const primeFactors = [...new Set(getPrimeFactors(number))] // Dedupe prime factors
 
   if (parseInt(number, 10)) {
-    if (parseInt(number, 10) > 9999) {
+    if (req.param('n') !== '10000' && req.param('n').length > 4) {
       res.status(400).send(toobig(number))
     } else {
       res.send(template(number, primeFactors))
