@@ -1,3 +1,5 @@
+const getPrimeFactors = require('get-prime-factors')
+
 module.exports = (number, primeFactors) => `
 <html lang="en">
   <meta charset="utf-8">
@@ -9,9 +11,27 @@ module.exports = (number, primeFactors) => `
   <svg role="presentation" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
     ${(function () {
       let string = ''
-      for (let i = 1; i < 9 + 1; i++) {
-        string += `<circle fill="none" stroke="hotpink" stroke-width=".15" cx="${i * 10 - 15}" cy="35" r="10"/>`
-      }
+      const primeFactors = []
+      const numbers = [
+        number - 3,
+        number - 2,
+        number - 1,
+        number,
+        number + 1,
+        number + 2,
+        number + 3
+      ]
+      numbers.map(number => {
+        getPrimeFactors(number).map(factor => {
+          !primeFactors.includes(factor) && primeFactors.push(factor)
+        })
+      })
+      primeFactors.map(factor => {
+        const radius = factor * 10
+        for (let i = 1; i < 9 + 1; i++) {
+          string += `<circle fill="none" stroke="hotpink" stroke-width=".15" stroke-opacity=".75" cx="${i * radius - radius * 1.5}" cy="35" r="${radius}"/>`
+        }
+      })
       return string
     })()}
   </svg>
@@ -41,8 +61,8 @@ module.exports = (number, primeFactors) => `
     </main>
   </div>
   <footer class="px1 py2">
-    <div class="max-width-2 mx-auto"
-      <small>Built by <a href="https://twitter.com/fredericmarx">@fredericmarx</a> using <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.npmjs.com/">npm</a>, <a href="https://expressjs.com/">Express</a>, and the <a href="http://www.basscss.com/">Basscss</a> toolkit. Prime factors are generated with <a href="https://www.npmjs.com/package/get-prime-factors">get-prime-factors</a> by <a href="https://www.npmjs.com/~janjarfalk">janjarfalk</a>.</small>
+    <div class="max-width-2 mx-auto">
+      Built by <a href="https://twitter.com/fredericmarx">@fredericmarx</a> using <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.npmjs.com/">npm</a>, <a href="https://expressjs.com/">Express</a>, and the <a href="http://www.basscss.com/">Basscss</a> toolkit. Prime factors are generated with <a href="https://www.npmjs.com/package/get-prime-factors">get-prime-factors</a> by <a href="https://www.npmjs.com/~janjarfalk">janjarfalk</a>.
     </div>
   </footer>
 `
