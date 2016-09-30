@@ -8,9 +8,14 @@ module.exports = (number, primeFactors) => `
         ? `<h1>${number} is a prime number</h1>`
         : `<h1>${number} is not a prime number.</h1>
 
-        <p>It is divisable by the prime factors
-        ${primeFactors.length > 1 ? `${primeFactors.slice(0, -1).join(', ')}, and` : ''}
-        ${primeFactors[primeFactors.length - 1]}.</p>`
+        ${number !== 1
+          ? `<p>It is divisable by the prime
+          factor${primeFactors.length > 1
+            ? `s ${primeFactors.slice(0, -1).join(', ')}, and` : ''
+          }
+          ${primeFactors[primeFactors.length - 1]}.
+          </p>`
+          : ''}`
       }`
       : `<h1>${number} is not a number</h1>`
     }
