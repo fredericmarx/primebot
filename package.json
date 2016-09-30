@@ -12,6 +12,7 @@
   "start": "node server.js",
   "dependencies": {
     "basscss-background-colors": "^2.1.0",
+    "basscss-base-reset": "^2.0.3",
     "basscss-btn": "^1.1.1",
     "basscss-btn-primary": "^1.1.0",
     "basscss-colors": "^2.2.0",
