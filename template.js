@@ -30,7 +30,7 @@ module.exports = (number, primeFactors) => `
             const radius = factor * 5
 
             for (let i = 0; i < circleCount; i++) {
-              string += `<circle fill="none" stroke="hotpink" stroke-width=".2" stroke-opacity="${(1 / factor) / 2 + 0.15}" cx="${(i * 2 * radius) - radius + numberPosition}" cy="35" r="${radius}"/>`
+              string += `<circle fill="none" stroke="#F012BE" stroke-width=".1" stroke-opacity="${(1 / factor) / 2 + 0.15}" cx="${(i * 2 * radius) - radius + numberPosition}" cy="35" r="${radius}"/>`
             }
             drawnFactors.push(factor)
           }
