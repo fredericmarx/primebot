@@ -8,7 +8,7 @@ module.exports = (number, primeFactors) => `
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/main.css">
   <div class="bg-white">
-  <svg role="presentation" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+  <svg class="stage" role="presentation" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
     ${(function () {
       let string = ''
       const primeFactors = []
@@ -29,8 +29,11 @@ module.exports = (number, primeFactors) => `
       primeFactors.map(factor => {
         const radius = factor * 10
         for (let i = 1; i < 9 + 1; i++) {
-          string += `<circle fill="none" stroke="hotpink" stroke-width=".15" stroke-opacity=".75" cx="${i * radius - radius * 1.5}" cy="35" r="${radius}"/>`
+          string += `<circle fill="none" stroke="hotpink" stroke-width=".2" stroke-opacity="${1 / factor}" cx="${i * radius - 1.5 * radius}" cy="35" r="${radius}"/>`
         }
+      })
+      numbers.map((number, index) => {
+        string += `<text x="${index * 10 + 5}" text-anchor="middle" width="10" y="35" font-size="2" style="text-align: center">${number}</text>`
       })
       return string
     })()}
