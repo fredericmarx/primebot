@@ -6,8 +6,8 @@ module.exports = (number) => `
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/main.css">
   <body class="bg-silver">
-  <div class="bg-white stage">
-    <main class="max-width-2 mx-auto px1 py2">
+  <div class="bg-white">
+    <main class="max-width-2 mx-auto px1 py2 mt-big">
       <h1>Sorry, but ${number} is too big :(</h1>
       <p>Calculating prime numbers is hard. I can only analyse smaller numbers.</p>
       <p>A prime number is any natural number greater than 1 that can only be divided by 1 and itself.</p>

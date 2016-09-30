@@ -8,7 +8,7 @@ module.exports = (number, primeFactors) => `
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/main.css">
   <body class="bg-silver">
-  <div class="bg-white stage">
+  <div class="bg-white overflow-hidden">
   <svg class="graph" role="presentation" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
     ${(function () {
       let string = ''
@@ -43,7 +43,7 @@ module.exports = (number, primeFactors) => `
       return string
     })()}
   </svg>
-    <main class="max-width-2 mx-auto px1 py2">
+    <main class="max-width-2 mx-auto mt-big px1 py2">
       ${primeFactors
         ? `${primeFactors.length === 1 && primeFactors[0] === number
           ? `<h1>${number} is a prime number</h1>`

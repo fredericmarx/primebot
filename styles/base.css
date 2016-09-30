@@ -7,8 +7,12 @@ a {
   color: var(--blue);
 }
 
-.stage {
+.overflow-hidden {
   overflow: hidden;
+}
+
+.mt-big {
+  margin-top: 15vh;
 }
 
 .graph {
