@@ -9,7 +9,7 @@ module.exports = (number, primeFactors) => `
   <link rel="stylesheet" href="styles/main.css">
   <body class="bg-silver">
   <div class="bg-white stage">
-  <svg role="presentation" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
+  <svg class="graph" role="presentation" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
     ${(function () {
       let string = ''
       const drawnFactors = []

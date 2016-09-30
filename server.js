@@ -1,6 +1,7 @@
 const express = require('express')
 const getPrimeFactors = require('get-prime-factors')
 const template = require('./template')
+const toobig = require('./toobig')
 const path = require('path')
 const app = express()
 const postcssMiddleware = require('postcss-middleware')
@@ -30,11 +31,18 @@ app.use('/styles', postcssMiddleware({
 }))
 
 app.get('/', (req, res, next) => {
+  if (req.param('n') === undefined) {
+    res.redirect(301, '?n=7')
+  }
   const number = parseInt(req.param('n'), 10)
   const primeFactors = [...new Set(getPrimeFactors(number))] // Dedupe prime factors
 
   if (parseInt(number, 10)) {
-    res.send(template(number, primeFactors))
+    if (parseInt(number, 10) > 9999) {
+      res.send(toobig(number))
+    } else {
+      res.send(template(number, primeFactors))
+    }
   } else {
     res.status(400).send(template(number))
   }
