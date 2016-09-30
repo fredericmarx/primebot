@@ -7,6 +7,7 @@ module.exports = (number, primeFactors) => `
   <meta name="description" content="Find prime numbers">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/main.css">
+  <body class="bg-silver">
   <div class="bg-white stage">
   <svg role="presentation" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
     ${(function () {

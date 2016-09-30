@@ -29,11 +29,7 @@ app.get('/', (req, res, next) => {
   const primeFactors = [...new Set(getPrimeFactors(number))] // Dedupe prime factors
 
   if (parseInt(number, 10)) {
-    if (primeFactors.length > 1) {
-      res.send(template(number, primeFactors))
-    } else {
-      res.send(template(number, primeFactors))
-    }
+    res.send(template(number, primeFactors))
   } else {
     res.status(400).send(template(number))
   }
