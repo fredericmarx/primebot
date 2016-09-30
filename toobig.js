@@ -15,7 +15,7 @@ module.exports = (number) => `
       <p>A prime number is any natural number greater than 1 that can only be divided by 1 and itself.</p>
       <form class="mt2" action="/" method="get">
         <label for="n" class="label">Enter a number</label>
-        <input value="7" name="n" id="n" type="number" class="input" onInput="btn()">
+        <input value="7" name="n" id="n" type="number" autofocus class="input" onInput="btn()">
         <input type="submit" class="btn btn-primary" id="s" value="Is this a prime number?">
       </form>
     </main>
