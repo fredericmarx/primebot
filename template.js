@@ -1,3 +1,5 @@
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 module.exports = (number, primeFactors) => `
 <html lang="en">
   <meta charset="utf-8">
@@ -6,15 +8,10 @@ module.exports = (number, primeFactors) => `
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/main.css">
   <div class="bg-white">
-    <table class="table" role="presentation">
-      <td class="py4"><a href="?n=${number - 3}">${number - 3}
-      <td class="py4"><a href="?n=${number - 2}">${number - 2}
-      <td class="py4"><a href="?n=${number - 1}">${number - 1}
-      <td class="py4">${number}
-      <td class="py4"><a href="?n=${number + 1}">${number + 1}
-      <td class="py4"><a href="?n=${number + 2}">${number + 2}
-      <td class="py4"><a href="?n=${number + 3}">${number + 3}
-    </table>
+  <svg role="presentation" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+    ${array.map(val => `<circle fill="none" stroke="blue" stroke-width=".15" cx="${val * 10 - 15}" cy="35" r="10"/>`
+    )}
+  </svg>
     <main class="max-width-2 mx-auto px1 py2">
       ${primeFactors
         ? `${primeFactors.length === 1 && primeFactors[0] === number
