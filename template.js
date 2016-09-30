@@ -42,7 +42,7 @@ module.exports = (number, primeFactors) => `
   </div>
   <footer class="px1 py2">
     <div class="max-width-2 mx-auto"
-      <small>Built by <a href="https://twitter.com/fredericmarx">@fredericmarx</a> using <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.npmjs.com/">npm</a>, <a href="https://expressjs.com/">Express</a> and the <a href="http://www.basscss.com/">Basscss</a> toolkit. Prime factors are generated with <a href="https://www.npmjs.com/package/get-prime-factors">get-prime-factors</a> by <a href="https://www.npmjs.com/~janjarfalk">janjarfalk</a>.</small>
+      <small>Built by <a href="https://twitter.com/fredericmarx">@fredericmarx</a> using <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.npmjs.com/">npm</a>, <a href="https://expressjs.com/">Express</a>, and the <a href="http://www.basscss.com/">Basscss</a> toolkit. Prime factors are generated with <a href="https://www.npmjs.com/package/get-prime-factors">get-prime-factors</a> by <a href="https://www.npmjs.com/~janjarfalk">janjarfalk</a>.</small>
     </div>
   </footer>
 `
