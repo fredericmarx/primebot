@@ -7,7 +7,12 @@ const postcssMiddleware = require('postcss-middleware')
 const postcssImport = require('postcss-import')
 const postcssCustomProperties = require('postcss-custom-properties')
 const postcssColorFunction = require('postcss-color-function')
+const compression = require('compression')
 const cssnano = require('cssnano')
+
+app.use(compression({
+  level: 1
+}))
 
 app.use('/styles', postcssMiddleware({
   src: (req) => {
