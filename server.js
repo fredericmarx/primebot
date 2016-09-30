@@ -5,14 +5,23 @@ const path = require('path')
 const app = express()
 const postcssMiddleware = require('postcss-middleware')
 const postcssImport = require('postcss-import')
+const postcssCustomProperties = require('postcss-custom-properties')
+const postcssColorFunction = require('postcss-color-function')
+const cssnano = require('cssnano')
 
 app.use('/styles', postcssMiddleware({
   src: (req) => {
     return path.join('styles', req.path)
   },
   plugins: [
-    postcssImport
-  ]
+    postcssImport,
+    postcssCustomProperties,
+    postcssColorFunction,
+    cssnano
+  ],
+  options: {
+    from: 'styles/main.css'
+  }
 }))
 
 app.get('/', (req, res, next) => {
