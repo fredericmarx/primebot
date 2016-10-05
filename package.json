@@ -31,5 +31,8 @@
     "postcss-import": "^8.1.2",
     "postcss-middleware": "^1.1.2",
     "rm": "^0.1.6"
+  },
+  "engines": {
+    "node": "6.3.x"
   }
 }
